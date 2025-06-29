@@ -135,6 +135,14 @@ export class vec2 {
 	setMag(mag) {
 		return this.normalize().scale(mag);
 	}
+	/**
+	 * Multiplies the vector by another vector element-wise (Hadamard product).
+	 * @param {{x: number, y: number}} param0 - The vector to multiply with.
+	 * @returns {vec2} This vector.
+	 */
+	hadamard({ x, y }) {
+		return this.set(this.x * x, this.y * y);
+	}
 
 	/**
 	 * Sets the direction of the vector to match another vector, preserving the magnitude.
@@ -142,8 +150,8 @@ export class vec2 {
 	 * @returns {vec2} This vector.
 	 */
 	setDirection(dir) {
-		let mag = this.dot(dir);
-		return this.copy(dir).setMag(mag);
+		const originalMag = this.mag();
+		return this.copy(dir).setMag(originalMag);
 	}
 
 	/**
@@ -185,9 +193,77 @@ export class vec2 {
 	 */
 	static angle2(v1, v2) {
 		let a = vec2.angle(v1, v2);
-		let sign = v1.cross(v2);
-		if (sign < 0) return 2 * Math.PI - a;
+		if (v1.cross(v2) < 0) return 2 * Math.PI - a;
 		return a;
+	}
+	/**
+	 * Converts the vector to polar coordinates.
+	 * @returns {{r: number, theta: number}} The polar coordinates of the vector.
+	 */
+	toPolar() {
+		return this.set(
+			this.mag(),
+			Math.atan2(this.y, this.x)
+		);
+	}
+	/**
+	 * Converts the vector to Cartesian coordinates.
+	 * @returns {{x: number, y: number}} The Cartesian coordinates of the vector.
+	 */
+	toCartesian() {
+		return this.set(
+			Math.cos(this.y) * this.x,
+			Math.sin(this.y) * this.x
+		);
+	}
+
+	/**
+	 * Sets the radius (r) in polar coordinates.
+	 * Note: This sets the x component, which is used as r in polar representation.
+	 * @param {number} r - The radius.
+	 */
+	set r(r) {
+		this.x = r;
+	}
+
+	/**
+	 * Sets the angle (theta) in polar coordinates.
+	 * Note: This sets the y component, which is used as theta in polar representation.
+	 * @param {number} theta - The angle in radians.
+	 */
+	set theta(theta) {
+		this.y = theta;
+	}
+
+	/**
+	 * Gets the radius (r) in polar coordinates.
+	 * Note: This returns the x component, which is used as r in polar representation.
+	 * @returns {number} The radius.
+	 */
+	get r() {
+		return this.x;
+	}
+
+	/**
+	 * Gets the angle (theta) in polar coordinates.
+	 * Note: This returns the y component, which is used as theta in polar representation.
+	 * @returns {number} The angle in radians.
+	 */
+	get theta() {
+		return this.y;
+	}
+	
+	/**
+	 * Linearly interpolates between this vector and another vector.
+	 * @param {{x: number, y: number}} param0 - The target vector.
+	 * @param {number} t - The interpolation factor (0 to 1).
+	 * @returns {vec2} This vector after interpolation.
+	 */
+	lerp({x, y}, t) {
+		return this.set(
+			(1 - t) * this.x + t * x,
+			(1 - t) * this.y + t * y
+		);
 	}
 
 	/**
