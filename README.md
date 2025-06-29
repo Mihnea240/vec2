@@ -4,8 +4,9 @@ A simple and efficient 2D vector library for JavaScript with comprehensive vecto
 
 ## Installation
 
+### From GitHub (Direct)
 ```js
-import { vec2 } from './vec2.js';
+import { vec2 } from 'https://raw.githubusercontent.com/Mihnea240/vec2/main/vec2.js';
 ```
 
 ## Basic Usage
