@@ -1,0 +1,19 @@
+{
+  "name": "vec2",
+  "version": "1.0.0",
+  "description": "Simple 2D vector implementation",
+  "main": "vec2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mihnea240/vec2.git"
+  },
+  "author": "Curca Mihai Mihnea",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mihnea240/vec2/issues"
+  },
+  "homepage": "https://github.com/Mihnea240/vec2#readme"
+}
