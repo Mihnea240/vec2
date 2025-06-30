@@ -1,21 +1,24 @@
 {
-  "name": "vec2",
-  "version": "1.0.0",
-  "description": "Simple 2D vector implementation",
-  "main": "vec2.js",
-  "type": "module",
-  "types": "vec2.d.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Mihnea240/vec2.git"
-  },
-  "author": "Curca Mihai Mihnea",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Mihnea240/vec2/issues"
-  },
-  "homepage": "https://github.com/Mihnea240/vec2#readme"
+	"name": "vec2",
+	"version": "1.0.0",
+	"description": "Simple 2D vector implementation",
+	"main": "vec2.js",
+	"type": "module",
+	"types": "vec2.d.ts",
+	"exports": {
+		".": {
+			"import": "./vec2.js",
+			"types": "./vec2.d.ts"
+		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Mihnea240/vec2.git"
+	},
+	"author": "Curca Mihai Mihnea",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Mihnea240/vec2/issues"
+	},
+	"homepage": "https://github.com/Mihnea240/vec2#readme"
 }
