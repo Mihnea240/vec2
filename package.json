@@ -4,6 +4,8 @@
   "description": "Simple 2D vector implementation",
   "main": "vec2.js",
   "type": "module",
+  "types": "vec2.d.ts",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
